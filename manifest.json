@@ -1,0 +1,14 @@
+{
+  "name": "Ficha The Esoterrorists",
+  "version": "1.0.0",
+  "manifest_version": 1,
+  "description": "Ficha editável de The Esoterrorists com salvamento nos metadados do jogador.",
+  "author": "Personalizada",
+  "action": {
+    "title": "Ficha",
+    "icon": "https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/notebook-pen.svg",
+    "popover": "index.html",
+    "width": 1000,
+    "height": 800
+  }
+}

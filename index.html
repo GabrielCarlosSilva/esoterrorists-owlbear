@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ficha · The Esoterrorists</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#d9d6cf;--paper:#f3f1ec;--ink:#16171a;--mute:#6b6a66;--line:#2a2b2e;--red:#9c1c1c;--hl:#e4c9c4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101113;--paper:#1c1d20;--ink:#e8e5de;--mute:#8e8c86;--line:#8a8983;--red:#d3503f;--hl:#4a2622}}
+:root[data-theme="dark"]{--bg:#101113;--paper:#1c1d20;--ink:#e8e5de;--mute:#8e8c86;--line:#8a8983;--red:#d3503f;--hl:#4a2622}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.4 "Special Elite",Georgia,serif}
+.sheet{max-width:1100px;margin:0 auto;background:var(--paper);padding:20px 24px 32px;border:1px solid var(--line)}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:10px;border-bottom:3px solid var(--ink);padding-bottom:10px;margin-bottom:18px}
+header h1{font:700 34px/1 Oswald,Impact,sans-serif;letter-spacing:.06em;margin:0;flex:1;min-width:220px}
+header h1 small{display:block;font:500 12px Oswald,sans-serif;letter-spacing:.2em;color:var(--red)}
+button{font:500 14px Oswald,sans-serif;letter-spacing:.05em;background:transparent;color:var(--ink);border:1px solid var(--line);padding:6px 12px;cursor:pointer}
+button:hover{background:var(--ink);color:var(--paper)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--red);outline-offset:1px}
+#status{font-size:12px;color:var(--mute);min-width:110px}
+h2{font:700 24px Oswald,sans-serif;letter-spacing:.04em;margin:0 0 6px}
+h3{font:700 13px Oswald,sans-serif;letter-spacing:.14em;margin:14px 0 2px;display:flex;justify-content:space-between;border-bottom:1px solid var(--line)}
+h3 span{color:var(--mute);font-weight:500}
+.grid{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px}
+.right{display:grid;gap:14px;align-content:start}
+.row{display:flex;align-items:center;gap:6px;padding:1px 0}
+.row label{flex:1}
+.row input{width:46px;text-align:center}
+.row .sep{color:var(--mute)}
+input,textarea{font:inherit;color:inherit;background:transparent;border:0;border-bottom:1px solid var(--mute);padding:2px 3px;border-radius:0}
+input:focus,textarea:focus{background:var(--hl)}
+.wide{width:100%}
+.f{display:block;margin-bottom:8px}
+.f b{font:700 12px Oswald,sans-serif;letter-spacing:.14em;display:block}
+textarea{width:100%;min-height:380px;border:1px solid var(--mute);resize:vertical;padding:8px}
+.lang{margin:2px 0 4px 18px;display:grid;gap:2px}
+.custom{flex:1}
+.bottom{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:28px;margin-top:20px}
+.ht{display:flex;align-items:center;gap:8px;font:700 13px Oswald,sans-serif;letter-spacing:.14em}
+.ht input{width:50px;border:2px solid var(--ink);text-align:center;font-size:18px}
+table{width:100%;border-collapse:collapse}
+th{font:700 12px Oswald,sans-serif;letter-spacing:.14em;text-align:left;border-bottom:1px solid var(--line)}
+td{padding:1px 0}td input{width:100%}td.m input{width:60px;text-align:right}
+.track{display:grid;grid-template-columns:repeat(12,1fr);margin:4px 0 12px;border:1px solid var(--line)}
+.track button{border:0;border-right:1px solid var(--mute);padding:4px 0;display:flex;flex-direction:column;align-items:center;font:500 13px Oswald,sans-serif;background:transparent;color:var(--ink);min-width:0}
+.track button:last-child{border-right:0}
+.track button small{font-size:11px;color:var(--mute)}
+.track button.on{background:var(--red);color:#fff}
+.track button.on small{color:#fff}
+.tot{font:500 12px Oswald,sans-serif;letter-spacing:.06em;color:var(--mute);margin-top:6px}
+.tot b{color:var(--ink)}
+.note{font-size:12px;color:var(--mute);border-top:1px solid var(--line);margin-top:18px;padding-top:8px}
+@media (max-width:760px){.grid,.bottom{grid-template-columns:1fr}textarea{min-height:200px}.sheet{padding:14px}}
+@media print{body{background:#fff}header button,#status,.noprint{display:none}.sheet{border:0;max-width:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+<header>
+  <h1><small>ORDO VERITATIS · FICHA DE REGISTRO</small>THE ESOTERRORISTS</h1>
+  <span id="status" aria-live="polite">Conectando…</span>
+  <button id="exp">Exportar</button>
+  <button id="imp">Importar</button>
+  <button id="prt">Imprimir</button>
+  <button id="clr">Limpar ficha</button>
+  <input type="file" id="file" accept=".json" hidden>
+</header>
+
+<div class="grid">
+  <div>
+    <h2>Habilidades investigativas</h2>
+    <div id="inv"></div>
+    <div class="tot">Pontos gastos: <b id="invT">0</b> · Pontos de construção: <input id="invBP" data-k="invBP" type="number" style="width:48px" value="20" aria-label="Pontos de construção investigativos"></div>
+  </div>
+  <div class="right">
+    <div>
+      <label class="f"><b>Nome</b><input class="wide" data-k="nome" style="font-size:22px"></label>
+      <label class="f"><b>Jogador</b><input class="wide" data-k="jogador"></label>
+      <label class="f"><b>Ocupação fora de serviço</b><input class="wide" data-k="ocupacao"></label>
+      <label class="f"><b>Cobertura atual</b><input class="wide" data-k="cobertura"></label>
+      <label class="f"><b>Notas e contatos</b><textarea data-k="notas"></textarea></label>
+    </div>
+  </div>
+</div>
+
+<div class="bottom">
+  <div>
+    <div class="ht">LIMIAR DE ACERTO <input data-k="hit" aria-label="Limiar de acerto"></div>
+    <table id="wp" style="margin-top:10px">
+      <thead><tr><th>Armas</th><th class="m">Modificador</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <button id="addW" class="noprint" style="margin-top:6px">+ Arma</button>
+    <h3>SAÚDE</h3><div class="track" id="saude"></div>
+    <h3>ESTABILIDADE</h3><div class="track" id="estab"></div>
+  </div>
+  <div>
+    <h2>Habilidades gerais</h2>
+    <div id="gen"></div>
+    <div class="tot">Pontos gastos: <b id="genT">0</b> / 60 + 1 Saúde + 1 Estabilidade</div>
+  </div>
+</div>
+
+<p class="note">Habilidades investigativas: 5+ jogadores = 20 · 4 = 22 · 3 = 24 · 2 = 32. Cada ponto em Languages dá 1 idioma extra e 1 ponto em Occult Studies grátis. Habilidades gerais: 60 pontos, mais 1 em Health e 1 em Stability. Limiar de acerto = 3 (4 se Athletics for 8 ou mais). 8 pontos em Surveillance dão 1 ponto grátis em Electronic Surveillance. Salvamento automático no Owlbear quando aberta como extensão; fora dele, salva neste navegador. Exporte JSON regularmente como backup.</p>
+</div>
+
+<script type="module">
+import OBR from "https://esm.sh/@owlbear-rodeo/sdk@1.0.0";
+
+const META_KEY = "com.esoterrorists.ficha/character";
+let owlready = false;
+let saveQueue = Promise.resolve();
+
+const INV={Acadêmicas:["Anthropology","Archaeology","Architecture","Art History","Forensic Accounting","Forensic Psychology","History","Languages","Law","Linguistics","Natural History","Occult Studies","Pathology","Research","Textual Analysis","Trivia"],
+Interpessoais:["Bullshit Detector","Bureaucracy","Cop Talk","Flattery","Flirting","Impersonate","Interrogation","Intimidation","Negotiation","Reassurance","Streetwise"],
+Técnicas:["Astronomy","Ballistics","Chemistry","Cryptography","Data Retrieval","Document Analysis","Electronic Surveillance","Evidence Collection","Explosive Devices","Fingerprinting","Forensic Anthropology","Forensic Entomology","Photography"]};
+const GEN=["Athletics","Driving","Filch","Health","Infiltration","Mechanics","Medic","Preparedness","Scuffling","Shooting","Shrink","Stability","Surveillance"];
+const KEY="esoterrorists-ficha-v1";
+let S={};
+const $=s=>document.querySelector(s);
+const st=$("#status");
+
+function row(k,label){return `<div class="row"><label for="r_${k}">${label}</label><input id="r_${k}" data-k="${k}_r" data-n inputmode="numeric" aria-label="${label} avaliação"><span class="sep">|</span><input data-k="${k}_p" inputmode="numeric" aria-label="${label} reserva"></div>`}
+function custom(k){return `<div class="row"><input class="custom" data-k="${k}_n" placeholder="Outra habilidade" aria-label="Nome da habilidade"><input data-k="${k}_r" data-n inputmode="numeric" aria-label="avaliação"><span class="sep">|</span><input data-k="${k}_p" inputmode="numeric" aria-label="reserva"></div>`}
+let h="";
+for(const [g,l] of Object.entries(INV)){
+  h+=`<h3>${g.toUpperCase()}<span>AVAL. | RESERVA</span></h3>`;
+  l.forEach(n=>{const k="i_"+n.replace(/\W/g,"");h+=row(k,n);
+    if(n==="Languages")h+=`<div class="lang">${[1,2,3,4].map(i=>`<input data-k="lang${i}" placeholder="Idioma ${i}" aria-label="Idioma ${i}">`).join("")}</div>`});
+  h+=custom("ic_"+g);
+}
+$("#inv").innerHTML=h;
+$("#gen").innerHTML=`<h3 style="margin-top:0">&nbsp;<span>AVAL. | RESERVA</span></h3>`+GEN.map(n=>row("g_"+n,n)).join("");
+
+function track(id,key){
+  const el=$(id);let b="";
+  for(let i=0;i<12;i++)b+=`<button data-i="${i}" aria-label="${key} ${12-i}">${12-i}<small>${i===0?0:-i}</small></button>`;
+  el.innerHTML=b;
+  el.onclick=e=>{const t=e.target.closest("button");if(!t)return;const i=+t.dataset.i;S[key]=S[key]===i?-1:i;paint();save()};
+}
+track("#saude","saude");track("#estab","estab");
+function paint(){
+  [["#saude","saude"],["#estab","estab"]].forEach(([id,k])=>document.querySelectorAll(id+" button").forEach(b=>b.classList.toggle("on",+b.dataset.i===S[k])));
+}
+
+function addW(w={n:"",m:""}){
+  const tr=document.createElement("tr");
+  tr.innerHTML=`<td><input data-w="n" aria-label="Arma"></td><td class="m"><input data-w="m" aria-label="Modificador"></td><td><button class="noprint" aria-label="Remover arma">×</button></td>`;
+  tr.querySelector('[data-w=n]').value=w.n;tr.querySelector('[data-w=m]').value=w.m;
+  tr.querySelector("button").onclick=()=>{tr.remove();save()};
+  $("#wp tbody").appendChild(tr);
+}
+$("#addW").onclick=()=>{addW();save()};
+
+function sums(){
+  const tot=sel=>[...document.querySelectorAll(sel)].reduce((a,i)=>a+(parseInt(i.value)||0),0);
+  $("#invT").textContent=tot("#inv [data-n]");
+  $("#genT").textContent=tot("#gen [data-n]");
+}
+function collect(){
+  document.querySelectorAll("[data-k]").forEach(i=>S[i.dataset.k]=i.value);
+  S.weapons=[...document.querySelectorAll("#wp tbody tr")].map(tr=>({n:tr.querySelector('[data-w=n]').value,m:tr.querySelector('[data-w=m]').value}));
+  sums();
+}
+function save(){
+  collect();
+  try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}
+  if(owlready){
+    const snapshot = JSON.parse(JSON.stringify(S));
+    saveQueue = saveQueue.then(()=>OBR.player.setMetadata({[META_KEY]: snapshot}));
+    saveQueue.then(()=>{
+      st.textContent="Ficha salva no Owlbear · "+new Date().toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
+    }).catch(()=>{
+      st.textContent="Falha ao salvar no Owlbear. Exporte um backup JSON.";
+    });
+  }else{
+    st.textContent="Salvo neste navegador · use Exportar para backup";
+  }
+}
+function load(d){
+  S=d||{};
+  document.querySelectorAll("[data-k]").forEach(i=>{if(S[i.dataset.k]!==undefined)i.value=S[i.dataset.k]});
+  $("#wp tbody").innerHTML="";
+  (S.weapons&&S.weapons.length?S.weapons:[{n:"Unarmed",m:"-2"}]).forEach(addW);
+  if(S.saude===undefined)S.saude=-1;if(S.estab===undefined)S.estab=-1;
+  paint();sums();
+}
+document.addEventListener("input",e=>{if(e.target.matches("input,textarea"))save()});
+
+async function initialize(){
+  try{
+    if(OBR.isAvailable){
+      await new Promise(resolve=>OBR.onReady(resolve));
+      owlready = true;
+      const metadata = await OBR.player.getMetadata();
+      const remote = metadata?.[META_KEY];
+      if(remote && typeof remote==="object"){
+        load(remote);
+        st.textContent="Ficha carregada do Owlbear";
+      }else{
+        const raw=localStorage.getItem(KEY);
+        load(raw?JSON.parse(raw):null);
+        st.textContent=raw?"Ficha local restaurada":"Nova ficha · primeiro salvamento no Owlbear";
+      }
+      try{
+        const playerName = await OBR.player.getName();
+        const playerField = document.querySelector('[data-k="jogador"]');
+        if(playerField && !playerField.value && playerName) playerField.value=playerName;
+      }catch(e){}
+      save();
+    }else{
+      const raw=localStorage.getItem(KEY);
+      load(raw?JSON.parse(raw):null);
+      st.textContent=raw?"Ficha restaurada no navegador":"Modo local · abra pelo Owlbear para sincronizar";
+    }
+  }catch(e){
+    owlready=false;
+    try{const raw=localStorage.getItem(KEY);load(raw?JSON.parse(raw):null)}catch(x){load(null)}
+    st.textContent="Modo local: não foi possível conectar ao Owlbear";
+  }
+}
+initialize();
+
+
+$("#exp").onclick=()=>{
+  save();const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([JSON.stringify(S,null,1)],{type:"application/json"}));
+  a.download=((S.nome||"ficha").replace(/\W+/g,"_"))+".json";a.click();
+};
+$("#imp").onclick=()=>$("#file").click();
+$("#file").onchange=e=>{
+  const f=e.target.files[0];if(!f)return;
+  f.text().then(t=>{try{document.querySelectorAll("[data-k]").forEach(i=>i.value="");load(JSON.parse(t));save()}catch(x){st.textContent="Arquivo inválido"}});
+  e.target.value="";
+};
+$("#prt").onclick=()=>window.print();
+$("#clr").onclick=()=>{
+  if(!confirm("Apagar todos os dados desta ficha?"))return;
+  document.querySelectorAll("[data-k]").forEach(i=>i.value="");
+  $("#invBP").value=20;load(null);save();
+};
+</script>
+</body>
+</html>

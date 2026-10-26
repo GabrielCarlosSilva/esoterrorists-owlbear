@@ -1,0 +1,17 @@
+Ficha The Esoterrorists para Owlbear Rodeo
+
+Arquivos:
+- index.html: ficha HTML adaptada para usar o SDK do Owlbear.
+- manifest.json: manifesto da extensão.
+
+Instalação:
+1. Hospede os dois arquivos em uma URL HTTPS pública, no mesmo diretório.
+2. No Owlbear, escolha Add Extension e informe a URL pública do manifest.json.
+3. Abra a extensão pela ação "Ficha".
+
+Dados e limitações:
+- A ficha usa os metadados do jogador atual com a chave com.esoterrorists.ficha/character.
+- Cada jogador que abrir a extensão terá sua própria ficha salva no metadata do seu usuário.
+- Esta versão não inclui painel do mestre para editar todas as fichas nem associa fichas automaticamente a tokens.
+- O SDK é importado via esm.sh. Se o import externo for bloqueado, será necessário empacotar o SDK com Vite/npm.
+- Teste com dois usuários e exporte JSON como backup antes de usar em jogo.
